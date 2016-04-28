@@ -1,0 +1,35 @@
+{# app/Resources/views/Exception/browsers.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    Браузер застарів | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/browsers.bundle.min.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <main id="content">
+            <div class="logo">
+                <img src="{{ asset('bundles/app/images/logo.png') }}">
+            </div>
+            <div class="content-holder">
+                <h1>{{ 'errors.page.browsers.errorTitle'|trans }}</h1>
+                <p>{{ 'errors.page.browsers.errorText'|trans }}</p>
+                <div class="btn-small">
+                    <a href="http://brasst.net.ua" target="_blank">
+                        <span>{{ 'button.BrAsst'|trans }}</span>
+                    </a>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

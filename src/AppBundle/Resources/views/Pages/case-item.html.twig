@@ -1,0 +1,97 @@
+{# src/AppBundle/Resources/views/pages/case-item.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ work.title }} | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="description" content="{{ work.description }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/case.bundle.min.css') }}">
+{% endblock %}
+
+{% block content %}
+
+
+    <main id="content">
+
+
+        <article class="case-holder">
+
+            <div class="photo-holder">
+                <figure>
+                    {% set originalImage = vich_uploader_asset(work, 'imageFile') %}
+                    {% set landscapeImage = ( originalImage ) ? originalImage|imagine_filter('case_landscape') : null  %}
+
+                    <div class="background" style="background: url('{{ landscapeImage }}') no-repeat 50% 0;"></div>
+                </figure>
+            </div>
+            <div class="title-holder">
+                <span class="case-number">{{ work.code }}</span>
+                <h1>{{ work.title }}</h1>
+                <div class="icon-holder">
+                    <div class="partners">
+                        <span class="icon {{ work.service.icon }}"></span>
+                        <p>{{ work.service.title }}</p>
+                    </div>
+                    <div class="type">
+                        <span class="icon {{ work.specialization.icon }}"></span>
+                        <p>{{ work.specialization.title }}</p>
+                    </div>
+                </div>
+            </div>
+            <time datetime="{{ work.created|date('d/m/Y') }}">{{ work.created|date('d/m/Y') }}</time>
+            <div class="inner">
+                <div class="info-holder">
+                    <h2>{{ 'caseItem.title.pointText'|trans }}</h2>
+                    <div class="sptr-small">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                    <p>{{ work.pointText }}</p>
+                </div>
+                <div class="info-holder">
+                    <h2>{{ 'caseItem.title.resolveText'|trans }}</h2>
+                    <div class="sptr-small">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                    <p>{{ work.resolveText }}</p>
+                </div>
+                <div class="info-holder">
+                    <h2>{{ 'caseItem.title.resultText'|trans }}</h2>
+                    <div class="sptr-small">
+                        <span class="line"></span>
+                        <span class="line"></span>
+                    </div>
+                    <p>{{ work.resultText }}</p>
+                </div>
+            </div>
+
+        </article>
+
+        <div class="arrow-holder">
+            {% if closestWorks.prev %}
+                <a href="{{ path('cases_item', { 'id': closestWorks.prev }) }}" class="left">
+                    <span class="icon-arrow-right"></span>{{ 'caseItem.arrows.previous'|trans }}
+                </a>
+            {% endif %}
+            {% if closestWorks.next %}
+                <a href="{{ path('cases_item', { 'id': closestWorks.next }) }}" class="right">
+                    {{ 'caseItem.arrows.next'|trans }}<span class="icon-arrow-left"></span>
+                </a>
+            {% endif %}
+        </div>
+
+    </main>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/case.bundle.min.js') }}"></script>
+{% endblock %}

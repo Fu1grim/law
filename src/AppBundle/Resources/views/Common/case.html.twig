@@ -1,0 +1,30 @@
+{% for work in works %}
+    <article class="case">
+        <figure>
+            {% set originalImage = vich_uploader_asset(work, 'imageFile') %}
+            {% set thumbnailImage = ( originalImage ) ? originalImage|imagine_filter('case_thumb') : null  %}
+
+            <img src="{{ thumbnailImage }}" alt="{{ work.title }}">
+        </figure>
+        <div class="panel-top">
+            <span class="icon {{ work.specialization.icon }}"></span>
+            <span class="case-number">{{ work.code }}</span>
+        </div>
+        <div class="inner">
+            <h3>{{ work.title }}</h3>
+            <div class="sptr-small">
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+            <p>{{ work.description }}</p>
+            <div class="btn-small">
+                <a href="{{ path('cases_item', {'id': work.id}) }}">
+                    <span>{{ 'button.detailed'|trans }}</span>
+                </a>
+            </div>
+        </div>
+        <div class="panel-bottom">
+            <span class="case-time">{{ work.created|date('d/m/Y') }}</span>
+        </div>
+    </article>
+{% endfor %}

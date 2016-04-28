@@ -1,0 +1,124 @@
+{# src/AppBundle/Resources/views/pages/index.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ 'common.site_title'|trans }} | {{ metadata.title }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="description" content="{{ metadata.description }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/home.bundle.min.css') }}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    <header id="header">
+
+    </header>
+
+    {% include 'AppBundle:Common:menu.html.twig' %}
+
+    <main id="content" class="page-row page-row-expanded">
+        <div class="outer intro-holder">
+            <div class="logo">
+                <img src="{{ asset('bundles/app/images/logo.png') }}">
+            </div>
+            <section class="inner intro-info">
+                <div class="intro">
+                    <span>{{ content.main.mainTitle }}</span>
+                    <h1>{{ content.main.subTitle }}</h1>
+                    <p>{{ content.main.textMain }}</p>
+                    <div class="btn-large">
+                        <a href="{{ path('feedback') }}">
+                            <span>{{ 'button.feedback'|trans }}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="scroll-down">
+                    <span class="scroll"></span>
+                </div>
+            </section>
+            <section class="inner benefits-holder">
+                <div class="benefits">
+                    <ul>
+
+                        {% for number in numbers %}
+                            <li>
+                                <span class="rhombus" data-number="{{ number.number }}"></span>
+                                <p>{{ number.title }}</p>
+                            </li>
+                        {% endfor %}
+
+                    </ul>
+                </div>
+            </section>
+        </div>
+        <section class="inner services-holder">
+            <div class="logo"><img src="{{ asset('bundles/app/images/logo.png') }}"></div>
+            <div class="services">
+               <h2>{{ content.service.mainTitle }}</h2>
+               <ul class="icons-holder">
+
+                   {% for specialization in specializations %}
+                       <li>
+                           <span class="icon {{ specialization.icon }}"></span>
+                           <div class="sptr-small">
+                               <span class="line"></span>
+                               <span class="line"></span>
+                           </div>
+                           <p>{{ specialization.title }}</p>
+                       </li>
+                   {% endfor %}
+
+               </ul>
+               <div class="btn-small">
+                    <a href="{{ path('services') }}">
+                        <span>{{ 'button.view'|trans }}</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        {% if works %}
+            <section class="inner cases-holder">
+                <h2>{{ content.work.subTitleWork }}</h2>
+                <div class="sptr-large">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+
+                <div class="cases">
+
+                    {% include 'AppBundle:Common:case.html.twig' with {'works': works} only %}
+
+                </div>
+                <div class="btn-small">
+                    <a href="{{ path('cases') }}">
+                        <span>{{ 'button.view'|trans }}</span>
+                    </a>
+                </div>
+            </section>
+        {% endif %}
+
+        <div id="footer-holder">
+
+            {% include 'AppBundle:Common:prefooter.html.twig' %}
+            {% include 'AppBundle:Common:footer.html.twig' %}
+
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+{% endblock %}

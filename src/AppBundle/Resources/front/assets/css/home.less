@@ -1,0 +1,472 @@
+@import "components/common.less";
+@import "components/caseItem.less";
+/*********************************/
+/* layout start                  */
+/*********************************/
+#page,
+#content{
+	height: 100%;
+	min-height: 100%;
+}
+/*********************************/
+/* layout end                    */
+/*********************************/
+
+/*********************************/
+/* header start                  */
+/*********************************/
+#header{
+	position: fixed;
+	z-index: 10;
+}
+/*********************************/
+/* header end                    */
+/*********************************/
+
+/*********************************/
+/* menu start                    */
+/*********************************/
+
+#toggle-menu{ position: fixed; }
+
+/*********************************/
+/* menu end                      */
+/*********************************/
+
+/*********************************/
+/* intro start                   */
+/*********************************/
+.intro-holder{
+	position: relative;
+	height: 150%;
+	background: url("@{image}back_1.jpg") no-repeat 0% 100%;
+	background-size: cover;
+    .intro-info,
+    .benefits-info{
+        max-width: 100%;
+    	height: 66.66666666666667%;
+    	position: relative;
+    	backface-visibility: hidden;
+    }
+    .logo{
+        width: 40px;
+    	top: 120px;
+    	margin-left: -20px;
+    }
+    .intro{
+        width: 100%;
+    	max-width: 1200px;
+    	height: auto;
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	transform: translateX(-50%) translateY(-50%);
+        backface-visibility: hidden;
+        h1,
+        span,
+        p{
+            color: @white;
+            text-align: center;
+        }
+        h1{
+            margin: 40px 0 10px;
+            font-size: 4em;
+        }
+        & > span{
+            display: block;
+            font-size: 2em;
+        	text-transform: uppercase;
+        }
+        p{
+            font-size: 1em;
+            padding: 0 120px;
+        }
+        .btn-large{
+            margin: 80px auto 0;
+        }
+    }
+}
+/*********************************/
+/* intro end                     */
+/*********************************/
+
+/*********************************/
+/* benefits start                */
+/*********************************/
+.benefits-holder{
+    height: 33.33333333333333%;
+    max-width: 100%;
+    position: relative;
+    margin: 0 auto;
+    overflow: visible;
+    .benefits{
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        backface-visibility: hidden;
+        ul{
+            width: 100%;
+            height: auto;
+        	overflow: hidden;
+            li{
+                display: block;
+                width: 25%;
+                min-height: 100px;
+                position: relative;
+                float: left;
+                &:before,
+                &:after{
+                    display: block;
+                    width: ~"calc(50% - 80px)";
+                    height: 1px;
+                    position: absolute;
+                    top: 65px;
+                    left: 0;
+                    background: @white;
+                    content: "";
+                    overflow: hidden;
+                }
+                &:after{
+                    left: auto;
+                    right: 0;
+                }
+                .rhombus{
+                    display: block;
+                    width: 90px;
+                    height: 90px;
+                    position: absolute;
+                    top: 20px;
+                    left: 50%;
+                    margin-left: -40px;
+                    border: 1px solid @white;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    transform: rotate(-45deg);
+                    &:before{
+                        display: block;
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        font-size: 1.5em;
+                        color: @gold;
+                        content: attr(data-number);
+                        white-space: -1;
+                        transform: translateX(-50%) translateY(-50%) rotate(45deg);
+                    }
+                }
+            }
+        }
+        p{
+            text-align: center;
+            text-transform: uppercase;
+        	padding: 150px 40px 0;
+        	color: @white;
+        	font-size: 1em;
+        }
+    }
+}
+/*********************************/
+/* benefits end                  */
+/*********************************/
+
+/*********************************/
+/* services start                */
+/*********************************/
+.services-holder{
+    width: 100%;
+	max-width: 100%;
+	height: auto;
+	position: relative;
+	background: @white;
+    .logo{
+        width: 30px;
+    	margin: 80px auto 20px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+    .services{
+        width: 100%;
+    	height: auto;
+        h2{
+            text-align: center;
+        }
+        .icons-holder{
+            margin-top: 40px;
+            .sptr-small{ margin: 10px auto 0; }
+        }
+        ul{
+            li{
+                & > p{
+                    font-size: 1.125em;
+                    padding: 0 20px;
+                }
+            }
+        }
+        .btn-small{
+            margin: 40px auto 80px;
+        }
+    }
+}
+/*********************************/
+/* services end                  */
+/*********************************/
+
+/*********************************/
+/* cases start                   */
+/*********************************/
+.cases-holder{
+    width: 100%;
+    max-width: 100%;
+    background: @white;
+    margin: 0 auto;
+    h2{
+        text-align: center;
+    }
+    .sptr-large{
+        margin: 20px auto 40px;
+    }
+    .cases{
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        .case{
+            width: ~"calc(50% - 20px)";
+            padding-top: ~"calc(50% - 20px)";
+            float: left;
+            &:nth-child(odd){
+                margin-right: 40px;
+            }
+        }
+    }
+    & > .btn-small{ margin: 40px auto 80px; }
+}
+/*********************************/
+/* cases end                     */
+/*********************************/
+
+/*********************************/
+/* media-queries start           */
+/*********************************/
+@media only screen and @notebook{
+
+    .intro-holder{
+        .logo{ top: 60px; }
+    }
+
+}
+
+@media only screen and @netbook{
+
+    .intro-holder{
+        .logo{
+            width: 30px;
+            margin-left: -15px;
+        }
+        .intro{
+            h1{ font-size: 2.5em; }
+            & > span{ font-size: 1.25em; }
+            p{ padding: 0 160px; }
+        }
+    }
+
+    .services-holder{
+
+        .logo{ width: 20px; }
+
+        .services{
+            ul.icons-holder{
+                margin-top: 0;
+                text-align: center;
+                .sptr-small{ margin: 20px auto 10px; }
+                li{
+                    display: inline-block;
+                    vertical-align: top;
+                    width: 33%;
+                    margin-left: -4px;
+                    float: none;
+                    margin-top: 40px;
+                    &:first-child{ margin-left: 0; }
+                    & > p{
+                        font-size: 1.125em;
+                        padding: 0 20px;
+                    }
+                }
+            }
+            .btn-small{ margin: 40px auto 80px; }
+        }
+    }
+
+    .cases-holder{
+        .cases{
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+    }
+}
+
+@media only screen and @tablet{
+
+    .intro-holder{
+        .intro{
+            h1{ font-size: 2.25em; }
+            p{ padding: 0 40px; }
+        }
+    }
+
+    .benefits-holder{
+        .benefits{
+            ul{
+                li{
+                    width: 50%;
+                    &:nth-child(3),
+                    &:nth-child(4){ margin-top: 40px; }
+                    &:before,
+                    &:after{ top: 60px; }
+                    .rhombus{
+                        width: 70px;
+                        height: 70px;
+                        top: 25px;
+                        &:before{ font-size: 1em; }
+                    }
+                }
+            }
+            p{
+                padding: 110px 40px 0;
+                font-size: 1em;
+            }
+        }
+    }
+
+    .cases-holder{
+        .cases{
+            .case{
+                width: 100%;
+                padding-top: 100%;
+                float: left;
+                margin-top: 40px;
+                &:first-child{ margin-top: 0; }
+                &:nth-child(odd){ margin-right: 0; }
+            }
+        }
+    }
+}
+
+@media only screen and @smartphone600{
+
+    .intro-holder{
+
+        .logo{
+            width: 20px;
+            margin-left: -10px;
+        }
+        .intro{
+
+            h1{
+                margin: 40px 0 10px;
+                font-size: 1.75em;
+            }
+            & > span{
+                display: block;
+                font-size: 1.125em;
+                text-transform: uppercase;
+            }
+            p{
+                font-size: 1em;
+                padding: 0 20px;
+            }
+            .btn-large{ margin: 80px auto 0; }
+        }
+    }
+
+    .services-holder{
+
+        .logo{ display: none; }
+
+        .services{
+            h2{ margin-top: 80px; }
+            ul.icons-holder{
+                li{
+                    display: block;
+                    width: 50%;
+                    margin-left: 0;
+                    float: left;
+                    margin-top: 40px;
+                    &:first-child{ margin-left: 0; }
+                    &:last-child{ width: 100%; }
+                    & > p{ font-size: 1em; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @smartphone440{
+
+    .intro-holder{
+        height: 100%;
+        background: url("@{image}back_1.jpg") no-repeat 15% 100%;
+        background-size: cover;
+        .intro-info{
+            max-width: 100%;
+            height: 100%;
+        }
+
+        .logo{
+            width: 30px;
+            margin-left: -15px;
+        }
+        .intro{
+
+            h1{
+                margin: 10px 0 0;
+                font-size: 1.75em;
+            }
+            & > span{
+                display: block;
+                font-size: .875em;
+                text-transform: uppercase;
+            }
+            p{ display: none; }
+            .btn-large{ margin: 40px auto 0; }
+        }
+    }
+
+    .benefits-holder{ display: none; }
+
+    .services-holder{
+        .services{
+            ul.icons-holder{
+                li{ width: 100%; }
+            }
+        }
+    }
+
+    .cases-holder{
+        .cases{
+            padding: 0 20px;
+            .case{ margin-top: 20px; }
+        }
+    }
+
+}
+
+@media only screen and @smartphone360{
+
+    .cases-holder{
+        .cases{
+            .case{
+                .btn-small{ margin-top: 20px; }
+            }
+        }
+    }
+
+}
+/*********************************/
+/* media-queries end             */
+/*********************************/

@@ -1,0 +1,100 @@
+# app/config/sonata.yml
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.user.block.menu:
+        sonata.user.block.account:
+        sonata.block.service.text:
+
+sonata_admin:
+    templates:
+        user_block: AppBundle:Admin:user_block.html.twig
+        layout:     AppBundle:Admin:standard_layout.html.twig
+
+services:
+
+    # Work
+
+    admin.work:
+        class:     AppBundle\Admin\WorkAdmin
+        arguments: [~, AppBundle\Entity\Work, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Кейси", group: "Кейси" }
+
+    # Services
+
+    admin.service:
+        class:     AppBundle\Admin\ServiceAdmin
+        arguments: [~, AppBundle\Entity\Service, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Види Послуг", group: "Послуги" }
+
+    admin.service_item:
+        class:     AppBundle\Admin\ServiceItemAdmin
+        arguments: [~, AppBundle\Entity\ServiceItem, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Списки Послуг", group: "Послуги", show_in_dashboard: false }
+
+    # Specializations
+
+    admin.specialization:
+        class:     AppBundle\Admin\SpecializationAdmin
+        arguments: [~, AppBundle\Entity\Specialization, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Види спеціалізацій", group: "Спеціалізації" }
+
+    # Content
+
+    admin.number:
+        class:     AppBundle\Admin\NumberAdmin
+        arguments: [~, AppBundle\Entity\Number, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Переваги", group: "Контент" }
+
+    admin.content.main:
+        class:     AppBundle\Admin\ContentMainAdmin
+        arguments: [~, AppBundle\Entity\ContentMain, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Контент Головна", group: "Контент" }
+
+    admin.content.service:
+        class:     AppBundle\Admin\ContentServiceAdmin
+        arguments: [~, AppBundle\Entity\ContentService, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Контент Послуги", group: "Контент" }
+
+    admin.content.work:
+        class:     AppBundle\Admin\ContentWorkAdmin
+        arguments: [~, AppBundle\Entity\ContentWork, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Контент Кейси", group: "Контент" }
+
+    admin.content.about:
+        class:     AppBundle\Admin\ContentAboutAdmin
+        arguments: [~, AppBundle\Entity\ContentAbout, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Контент Про мене", group: "Контент" }
+
+    admin.content.feedback:
+        class:     AppBundle\Admin\ContentFeedbackAdmin
+        arguments: [~, AppBundle\Entity\ContentFeedback, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Контент Форми", group: "Контент" }
+
+    # Contacts
+
+    admin.contact:
+        class:     AppBundle\Admin\ContactAdmin
+        arguments: [~, AppBundle\Entity\Contact, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Контакти", group: "Контакти" }
+
+    # Metadata
+
+    admin.metadata:
+        class:     AppBundle\Admin\MetadataAdmin
+        arguments: [~, AppBundle\Entity\Metadata, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: "Метадані", group: "Метадані" }

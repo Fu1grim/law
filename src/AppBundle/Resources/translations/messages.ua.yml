@@ -1,0 +1,56 @@
+common:
+    site_title: Індивідуальна адвокатська практика Гнатенка Олексія
+    header:
+        certificate: Свідоцтво
+    menu:
+        home:     головна
+        services: послуги
+        cases:    кейси
+        about:    про мене
+    prefooter:
+        title: бажаєте співпрацювати?
+        text:  буду радий знайти нових партнерів та розглянути цікаві справи
+    footer:
+        footerTextStart: © Гнатенко Олексій, 2016. Створено в
+        footerTextEnd:   Використання матеріалів сайту без згоди його авторів заборонено.
+        cheers:          CHEERS! Unlimited.
+
+
+button:
+    feedback: Звернутись
+    view:     Переглянути
+    detailed: Детальніше
+    send:     Bідправити
+    main:     Hа головну
+    BrAsst:   Br.Asst.
+
+errors:
+    page:
+        error404:
+            errorTitle: сторінка не знайдена
+            404:        404
+            errorText:  Виникла помилка. Такої сторінки не існує
+
+        browsers:
+            errorTitle: ваш браузер застарів
+            errorText:  скачати нову версію
+
+    empty:
+        works: Сторінка порожня
+
+caseItem:
+    arrows:
+        next:     Наступний
+        previous: Попередній
+    title:
+        pointText:   Суть
+        resolveText: Розв'язання
+        resultText:  Висновок
+
+emails:
+    feedback:
+        subject: hnatenko.com - Повідомлення зворотнього зв’язку!
+
+        response:
+            success: Ваше повідомлення успішно відправлено!
+            fail:    Помилка! Будь ласка, перевірте коректність введених даних

@@ -1,0 +1,41 @@
+{# app/Resources/views/Exception/error404.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    404 - Not Found | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/404.bundle.min.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+        <main id="content">
+            <div class="logo">
+                <img src="{{ asset('bundles/app/images/logo.png') }}">
+            </div>
+            <div class="content-holder">
+                <h1>{{ 'errors.page.error404.errorTitle'|trans }}</h1>
+                <div class="inner numeral-holder">
+                    <section class="numeral left">
+                        <span>{{ 'errors.page.error404.404'|trans }}</span>
+                    </section>
+                    <section class="numeral right">
+                        <span>{{ 'errors.page.error404.404'|trans }}</span>
+                    </section>
+                </div>
+                <p>{{ 'errors.page.error404.errorText'|trans }}</p>
+                <div class="btn-small">
+                    <a href="{{ path('home') }}"><span>{{ 'button.main'|trans }}</span></a>
+                </div>
+            </div>
+        </main>
+    </div>
+{% endblock %}
+
+{% block javascripts %}{% endblock %}

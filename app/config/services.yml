@@ -1,0 +1,37 @@
+#app/config/services.yaml
+services:
+
+    # Controller
+
+    app.ie_fallback_controller:
+        class: AppBundle\Controller\Fallback\IeFallbackController
+        calls:
+            - [setTemplating, [ "@templating" ]]
+
+    # Event listeners
+
+    listener.fallback.ie:
+        class: AppBundle\EventListener\Fallback\IeFallbackListener
+        calls:
+            - [setIeFallbackController, [ "@app.ie_fallback_controller" ]]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+
+    logout_listener:
+        class: AppBundle\EventListener\LogoutListener
+        calls:
+            - [setRouter, ["@router"]]
+
+    # Services
+
+    app.mailer:
+        class: AppBundle\Service\Mailer
+        calls:
+            - [setMailer, ["@mailer"]]
+            - [setTranslator, ["@translator"]]
+
+    app.metadata:
+        class: AppBundle\Service\Metadata
+        calls:
+            - [setManager, ["@doctrine.orm.entity_manager"]]
+            - [setRequestStack, ["@request_stack"]]

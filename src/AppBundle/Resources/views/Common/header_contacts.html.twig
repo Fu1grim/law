@@ -1,0 +1,11 @@
+<div class="contact-holder">
+    <a href="{{ contact.link }}" target="_blank">
+        <span class="icon icon-certificate"></span>{{ 'common.header.certificate'|trans }}
+    </a>
+    <a href="mailto:{{ contact.email }}">
+        <span class="icon icon-email"></span>{{ contact.email }}
+    </a>
+    <a href="tel:{{ contact.phone|replace({ '(': '', ')': '', '-': '', ' ': '' }) }}">
+        <span class="icon icon-phone"></span>{{ contact.phone }}
+    </a>
+</div>

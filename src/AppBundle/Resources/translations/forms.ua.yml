@@ -1,0 +1,13 @@
+comment:
+    name:
+        lable:       Заповніть це поле!
+        placeholder: Ваше ім'я
+    email:
+        lable:       Це не схоже на справжню електронну пошту!
+        placeholder: Ваш e-mail
+    phone:
+        lable:       Заповніть це поле!
+        placeholder: Ваш телефон
+    message:
+        lable:       Заповніть це поле!
+        placeholder: Ваше повідомлення

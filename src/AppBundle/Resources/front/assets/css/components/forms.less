@@ -1,0 +1,80 @@
+/*********************************/
+/* forms start                   */
+/*********************************/
+form{
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+}
+
+.field-holder,
+.response-holder{
+    width: 100%;
+    height: auto;
+}
+.response-holder{
+    margin-bottom: 40px;
+    background: @gold;
+    border-radius: 3px;
+    padding: 20px;
+    box-sizing: border-box;
+    &.success{
+        p{ color: green; }
+    }
+    &.error{
+        p{ color: red; }
+    }
+}
+
+
+input[type="text"],
+input[type="tel"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea{
+    width: 100%;
+    height: 50px;
+    background: @white;
+    border: 2px solid @gold;
+    box-sizing: border-box;
+    border-radius: 3px;
+    font-family: @Droid;
+    font-size: 1em;
+    color: @black;
+    line-height: 46px;
+    text-indent: 10px;
+    & + label.error{
+        display: block;
+        width: 100%;
+        line-height: 40px;
+        font-family: @Droid;
+        font-size: .875em;
+        color: red;
+    }
+}
+
+textarea{
+    height: auto;
+    min-height: 150px;
+    resize: none;
+    padding: 10px;
+    line-height: normal;
+}
+
+button[type="submit"]{
+    display: block;
+    width: 180px;
+    height: 50px;
+    padding: 0;
+    margin: 0 auto;
+    border: none;
+    background: transparent;
+    font-family: @Droid;
+    font-size: 1em;
+    color: @white;
+}
+
+/*********************************/
+/* forms end                     */
+/*********************************/

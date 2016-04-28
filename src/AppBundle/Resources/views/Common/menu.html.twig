@@ -1,0 +1,29 @@
+<div id="toggle-menu">
+    <span class="line top"></span>
+    <span class="line center"></span>
+    <span class="line bottom"></span>
+</div>
+
+<div id="menu-holder">
+
+    {% set current_path = app.request.attributes.get('_route') %}
+
+    <nav class="menu">
+        <ul>
+            {% set active = ( current_path == 'home' ) ? 'class="active"' : null %}
+            <li><a href="{{ path('home') }}" {{ active|raw }}>{{ 'common.menu.home'|trans }}</a></li>
+
+            {% set active = ( current_path == 'services' ) ? 'class="active"' : null %}
+            <li><a href="{{ path('services') }}" {{ active|raw }}>{{ 'common.menu.services'|trans }}</a></li>
+
+            {% set active = ( current_path == 'cases' or current_path == 'cases_item' ) ? 'class="active"' : null %}
+            <li><a href="{{ path('cases') }}" {{ active|raw }}>{{ 'common.menu.cases'|trans }}</a></li>
+
+            {% set active = ( current_path == 'about' ) ? 'class="active"' : null %}
+            <li><a href="{{ path('about') }}" {{ active|raw }}>{{ 'common.menu.about'|trans }}</a></li>
+        </ul>
+    </nav>
+
+    {{ render(controller('AppBundle:Common:headerContacts')) }}
+
+</div>

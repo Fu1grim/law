@@ -1,0 +1,68 @@
+{# src/AppBundle/Resources/views/pages/feedback.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ metadata.title }} | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="description" content="{{ metadata.description }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/feedback.bundle.min.css') }}">
+{% endblock %}
+
+{% block header %}{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <div class="arrow-holder">
+            <a href="{{ path('home') }}" class="left"><span class="icon-arrow-right"></span>{{ 'button.main'|trans }}</a>
+        </div>
+        <div class="logo">
+            <img src="{{ asset('bundles/app/images/logo.png') }}">
+        </div>
+        <section class="outer contacts">
+            <h2>{{ contentFeedback.subTitleFeedback }}</h2>
+            <div class="sptr-small">
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+            <ul class="contact-icons">
+                <li>
+                    <span class="icon icon-email"></span>
+                    <a href="mailto:{{ contact.email }}">
+                        {{ contact.email }}
+                    </a>
+                </li>
+                <li>
+                    <span class="icon icon-phone"></span>
+                    <a href="tel:{{ contact.phone|replace({ '(': '', ')': '', '-': '', ' ': '' }) }}">
+                        {{ contact.phone }}
+                    </a>
+                </li>
+            </ul>
+        </section>
+        <section class="outer feedback">
+            <h2>{{ contentFeedback.mainTitle }}</h2>
+            <div class="sptr-small">
+                <span class="line"></span>
+                <span class="line"></span>
+            </div>
+
+            {% include 'AppBundle:Forms:feedback.html.twig' with {'feedbackView': feedbackView} only %}
+
+        </section>
+    </main>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/feedback.bundle.min.js') }}"></script>
+{% endblock %}

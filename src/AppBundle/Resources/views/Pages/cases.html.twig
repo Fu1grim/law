@@ -1,0 +1,32 @@
+{# src/AppBundle/Resources/views/pages/cases.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title }} | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="description" content="{{ metadata.description }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/cases.bundle.min.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <section class="inner cases-info">
+            <h1>{{ contentWork.mainTitle }}</h1>
+            <h2>{{ contentWork.subTitleWork }}</h2>
+            <div class="cases">
+                {% include 'AppBundle:Common:case.html.twig' with {'works': works} only %}
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/cases.bundle.min.js') }}"></script>
+{% endblock %}

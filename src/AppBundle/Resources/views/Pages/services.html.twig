@@ -1,0 +1,79 @@
+{# src/AppBundle/Resources/views/pages/services.html.twig #}
+{% extends 'AppBundle::layout.html.twig' %}
+
+{% block title %}
+    {{ metadata.title }} | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="description" content="{{ metadata.description }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/services.bundle.min.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <section class="spec-holder">
+            <div class="inner spec">
+                <h1>{{ contentService.mainTitle }}</h1>
+                <h2>{{ contentService.subTitleSpecializations }}</h2>
+                <p>{{ contentService.textService }}</p>
+            </div>
+            <div class="spec-icons">
+                <ul class="icons-holder">
+
+                    {% for specialization in specializations %}
+                        <li>
+                            <span class="icon {{ specialization.icon }}"></span>
+                            <div class="sptr-small">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                            <p>{{ specialization.title }}</p>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </section>
+        <section class="services-holder">
+            <h2>{{ contentService.subTitleService }}</h2>
+            <div class="services">
+
+                {% for service in services %}
+                    <div class="block-holder">
+                        <div class="skew">
+                            <figure>
+                                <img src="{{ asset('bundles/app/images/' ~ service.image) }}" alt="{{ service.title }}">
+                            </figure>
+                        </div>
+                        <div class="inner">
+                            <span class="icon {{ service.icon }}"></span>
+                            <div class="sptr-small">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                            <span>{{ service.title }}</span>
+                            <ul class="list">
+
+                                {% for serviceItem in service.serviceItems %}
+                                    <li>{{ serviceItem.title }}</li>
+                                {% endfor %}
+
+                            </ul>
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </section>
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/services.bundle.min.js') }}"></script>
+{% endblock %}

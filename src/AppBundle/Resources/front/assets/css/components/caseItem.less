@@ -1,0 +1,145 @@
+/*********************************/
+/* separators start              */
+/*********************************/
+.cases{
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    .case{
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-top: 100%;
+        position: relative;
+        overflow: hidden;
+        figure,
+        figure:before,
+        .panel-top,
+        .inner,
+        .panel-bottom{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            overflow: hidden;
+            & > .icon{ font-size: 2.5em; }
+        }
+        figure{
+            border-radius: 5px;
+            &:before{
+                background: fade(@black, 75%);
+                z-index: 2;
+                content: "";
+                border-radius: 5px;
+            }
+        }
+        .inner{
+            max-width: 100%;
+            height: auto;
+            top: 50%;
+            z-index: 5;
+            transform: translateY(-50%);
+            backface-visibility: hidden;
+            .sptr-small{
+                margin: 20px auto 10px;
+            }
+            h3,
+            p{
+                color: @white;
+                text-align: center;
+                padding: 0 40px;
+            }
+            h3{
+                margin-top: 0;
+            }
+            .btn-small{
+                margin: 40px auto 0;
+                a{
+                    color: @gold;
+                }
+            }
+        }
+        .panel-top,
+        .panel-bottom{
+            z-index: 5;
+            height: auto;
+            & > span{
+                display: inline-block;
+                vertical-align: middle;
+                float: left;
+                padding: 10px;
+                color: @white;
+                &:last-child{
+                    float: right;
+                }
+            }
+        }
+        .panel-bottom{
+            top: auto;
+            bottom: 0;
+            & > span{
+                &:last-child{ float: left; }
+            }
+        }
+    }
+}
+/*********************************/
+/* separators start              */
+/*********************************/
+
+/*********************************/
+/* adaptive start                */
+/*********************************/
+@media only screen and @smartphone440{
+
+    .cases{
+        .case{
+            .panel-top{
+                .icon{ font-size: 1.5em; }
+            }
+            .inner{
+                max-width: 100%;
+                height: auto;
+                top: 50%;
+                z-index: 5;
+                transform: translateY(-50%);
+                backface-visibility: hidden;
+                .sptr-small{
+                    margin-top: 20px;
+                }
+                h3{
+                    font-size: 1em;
+                }
+            }
+            .panel-top,
+            .panel-bottom{
+                .case-number{ font-size: .875em; }
+            }
+            .panel-bottom{
+                & > span{
+                    font-size: .875em;
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @smartphone360{
+
+    .cases{
+        .case{
+            .inner{
+                p{
+                    display: none;
+                }
+            }
+        }
+    }
+
+}
+/*********************************/
+/* adaptive end                  */
+/*********************************/

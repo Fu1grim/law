@@ -1,0 +1,57 @@
+<form action="{{ path('feedback') }}" method="post" id="feedback-form">
+
+    {% if app.session.flashbag.has('feedback-message') %}
+        {% for flashMessage in app.session.flashbag.get('feedback-message') %}
+            <div class="response-holder {{ flashMessage|keys.0 }}">
+                    <p>{{ flashMessage|first }}</p>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    {{ form_widget(feedbackView._token) }}
+
+    <div class="field-holder">
+        {{ form_widget(feedbackView.name, {
+            'attr': {
+                'data-rule-required':  "true", 'data-msg-required': 'feedback.errors.not_blank'|trans({}, "validators"),
+                'data-rule-minlength': "2", 'data-msg-minlength': 'feedback.errors.name.length.min'|trans({}, "validators"),
+                'data-rule-maxlength': "200", 'data-msg-maxlength': 'feedback.errors.name.length.max'|trans({}, "validators")
+            }
+        }) }}
+    </div>
+
+    <div class="field-holder">
+        {{ form_widget(feedbackView.email, {
+            'attr': {
+                'data-rule-required': "true", 'data-msg-required': 'feedback.errors.not_blank'|trans({}, "validators"),
+                'data-rule-email': "true", 'data-msg-email': 'feedback.errors.email'|trans({}, "validators")
+            }
+        }) }}
+    </div>
+
+    <div class="field-holder">
+        {{ form_widget(feedbackView.phone, {
+            'attr': {
+                'data-rule-required': "true", 'data-msg-required': 'feedback.errors.not_blank'|trans({}, "validators"),
+                'data-mask': "+38 (099) 999-9999"
+            }
+        }) }}
+    </div>
+
+    <div class="field-holder">
+        {{ form_widget(feedbackView.message, {
+            'attr': {
+                'data-rule-required': "true", 'data-msg-required': 'feedback.errors.not_blank'|trans({}, "validators"),
+                'data-rule-maxlength': "4000", 'data-msg-maxlength': 'feedback.errors.message.length.max'|trans({}, "validators")
+            }
+        }) }}
+    </div>
+
+    <button type="submit">
+        <div class="btn-small">
+            <span>
+                <span>{{ 'button.send'|trans }}</span>
+            </span>
+        </div>
+    </button>
+</form>

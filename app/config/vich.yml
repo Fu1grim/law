@@ -1,0 +1,15 @@
+# app/config/vich.yml
+twig:
+    form_themes:
+        - 'VichUploaderBundle:Form:fields.html.twig'
+
+vich_uploader:
+    db_driver: orm
+
+    mappings:
+        work_image:
+            uri_prefix:         /uploads/work/images
+            upload_destination: %kernel.root_dir%/../www/uploads/work/images
+            namer:              vich_uploader.namer_uniqid
+            delete_on_remove:   true
+            delete_on_update:   true

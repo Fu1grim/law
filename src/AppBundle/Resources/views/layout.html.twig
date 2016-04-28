@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Hnatenko">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+{% endblock %}
+
+{% block favicon %}
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('bundles/app/images/favicons/apple-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('bundles/app/images/favicons/apple-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('bundles/app/images/favicons/apple-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('bundles/app/images/favicons/apple-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('bundles/app/images/favicons/apple-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('bundles/app/images/favicons/apple-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('bundles/app/images/favicons/apple-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('bundles/app/images/favicons/apple-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('bundles/app/images/favicons/apple-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('bundles/app/images/favicons/android-icon-192x192.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('bundles/app/images/favicons/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('bundles/app/images/favicons/favicon-96x96.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('bundles/app/images/favicons/favicon-16x16.png') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="{{ asset('bundles/app/images/favicons/ms-icon-144x144.png') }}">
+    <meta name="theme-color" content="#ffffff">
+{% endblock %}
+
+{% block body %}
+    <div id="page">
+
+        {% block header %}
+            <header id="header">
+                <div class="logo">
+                    <a href="{{ path('home') }}">
+                        <img src="{{ asset('bundles/app/images/logo.png') }}">
+                    </a>
+                </div>
+
+            </header>
+        {% endblock %}
+
+        {% block menu %}
+            {% include 'AppBundle:Common:menu.html.twig' %}
+        {% endblock %}
+
+        {% block content %}
+            {% block case %}
+                {% include 'AppBundle:Common:case.html.twig' %}
+            {% endblock %}
+        {% endblock %}
+
+        {% block footer %}
+            <div id="footer-holder">
+                {% include 'AppBundle:Common:prefooter.html.twig' %}
+                {% include 'AppBundle:Common:footer.html.twig' %}
+            </div>
+        {% endblock %}
+
+    </div>
+{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/home.bundle.min.js') }}"></script>
+{% endblock %}

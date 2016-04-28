@@ -1,0 +1,255 @@
+@import "components/common.less";
+
+/*********************************/
+/* header start                  */
+/*********************************/
+#header{
+    position: absolute;
+    z-index: 10;
+}
+/*********************************/
+/* header end                    */
+/*********************************/
+
+/*********************************/
+/* case start                    */
+/*********************************/
+.case-holder{
+    position: relative;
+    .photo-holder{
+        width: 100%;
+        height: 400px;
+        position: relative;
+        margin-bottom: 80px;
+        overflow: hidden;
+        .background{
+            height: 400px;
+            background-size: cover;
+        }
+        &:before{
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 5;
+            content: "";
+            background: fade(@black, 50%);
+            overflow: hidden;
+        }
+    }
+    .title-holder{
+        width: 100%;
+        height: auto;
+        position: absolute;
+        top: 100px;
+        left: 0;
+        z-index: 10;
+        .case-number{
+            display: block;
+            width: 100%;
+            text-align: center;
+            color: @white;
+            margin-bottom: 20px;
+        }
+        h1{
+            font-size: 2em;
+            text-align: center;
+            color: @white;
+            margin-bottom: 40px;
+        }
+        p{
+            max-width: 680px;
+            text-align: center;
+            color: @white;
+            padding: 0 20px;
+            margin: 0 auto;
+        }
+        .icon-holder{
+            display: block;
+            width: 500px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+            .partners,
+            .type{
+                width: 240px;
+                float: left;
+                margin-right: 20px;
+                .icon{
+                    display: block;
+                    width: 40px;
+                    height: 40px;
+                    margin: 0 auto;
+                    line-height: 40px;
+                    color: @white;
+                    font-size: 2em;
+                    text-align: center;
+                    &:before{
+                        display: inline-block;
+                        vertical-align: middle;
+                    }
+                }
+                p{
+                    padding-top: 10px;
+                    text-align: center;
+                    color: @white;
+                }
+            }
+            .type{ margin-right: 0; }
+        }
+    }
+    & > time{
+        display: block;
+        width: 100%;
+        height: 40px;
+        position: absolute;
+        top: 360px;
+        left: 0;
+        z-index: 10;
+        text-align: right;
+        line-height: 40px;
+        padding: 0 20px;
+        color: @white;
+        box-sizing: border-box;
+    }
+    .inner{
+        margin: 0 auto;
+        .info-holder{
+            width: 100%;
+            height: auto;
+            margin-bottom: 60px;
+            overflow: hidden;
+            &:last-child{ margin-bottom: 40px; }
+            h2{
+                text-align: center;
+                font-size: 1.5em;
+            }
+            p{ padding: 0 80px 20px; }
+            .sptr-small{ margin: 10px auto 20px; }
+        }
+    }
+}
+/*********************************/
+/* case end                      */
+/*********************************/
+
+/*********************************/
+/* arrow-holder start            */
+/*********************************/
+.arrow-holder{
+    width: 100%;
+    margin-bottom: 40px;
+    overflow: hidden;
+    & > a{
+        display: inline-block;
+        vertical-align: top;
+        background: @black;
+        color: @white;
+        line-height: 40px;
+        padding: 0 20px;
+        transition: all .5s ease;
+        span{
+            display: inline-block;
+            line-height: 40px;
+            color: inherit;
+            font-size: inherit;
+            &:before{
+                line-height: 40px;
+                display: block;
+            }
+        }
+        &.left{
+            float: left;
+            border-radius: 0 3px 3px 0;
+            span{ padding-right: 10px; }
+        }
+        &.right{
+            float: right;
+            border-radius: 3px 0 0 3px;
+            span{ padding-left: 10px; }
+        }
+        &:hover{ color: @gold; }
+    }
+
+}
+/*********************************/
+/* arrow-holder end              */
+/*********************************/
+
+/*********************************/
+/* adaptive start                */
+/*********************************/
+@media only screen and @tablet{
+
+    .case-holder{
+        .inner{
+            .info-holder{
+                margin-bottom: 40px;
+                &:last-child{ margin-bottom: 20px; }
+                p{ padding: 0 60px 20px; }
+            }
+        }
+    }
+}
+
+@media only screen and @smartphone600{
+
+    .case-holder{
+        .photo-holder{
+            figure{
+                height: 100%;
+                position: relative;
+                overflow: hidden;
+            }
+        }
+        .title-holder{
+            top: 80px;
+            h1{
+                margin-bottom: 0;
+                font-size: 1.5em;
+            }
+            p{ padding: 0; }
+            .icon-holder{
+                width: 100%;
+                margin: 0 auto;
+                .partners,
+                .type{
+                    width: 100%;
+                    margin-top: 20px;
+                    .icon{ font-size: 1.5em; }
+                }
+            }
+        }
+    }
+
+}
+
+@media only screen and @smartphone440{
+
+    .case-holder{
+        .inner{
+            .info-holder{
+                p{ padding: 0 40px 20px; }
+            }
+        }
+    }
+}
+
+@media only screen and @smartphone360{
+
+    .case-holder{
+        .inner{
+            .info-holder{
+                p{ padding: 0 20px 20px; }
+            }
+        }
+    }
+    .arrow-holder{
+        & > a{ padding: 0 15px 4px; }
+    }
+}
+
+/*********************************/
+/* adaptive end                  */
+/*********************************/

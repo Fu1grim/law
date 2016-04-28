@@ -1,0 +1,66 @@
+{# src/AppBundle/Resources/views/pages/about.html.twig #}
+{% extends "AppBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ metadata.title }} | {{ 'common.site_title'|trans }}
+{% endblock %}
+
+{% block meta %}
+    {{ parent() }}
+    <meta name="description" content="{{ metadata.description }}">
+    <meta name="robots" content="{{ metadata.robots }}">
+{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/app/css/about.bundle.min.css') }}">
+{% endblock %}
+
+{% block content %}
+    <main id="content">
+        <section class="outer block-holder top">
+            <div class="headline">
+                <h1>{{ content.about.mainTitle }}</h1>
+            </div>
+            <div class="inner block top">
+                <h2>{{ content.about.subTitleAbout }}</h2>
+                <div class="sptr-small">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <p>{{ content.about.textAbout }}</p>
+            </div>
+        </section>
+        <section class="inner middle-holder">
+           <div class="logo-white">
+               <img src="{{ asset('bundles/app/images/logo-white.png') }}">
+           </div>
+           <div class="middle-info">
+               <p>{{ content.service.textService }}</p>
+           </div>
+        </section>
+        <section class="outer block-holder bottom">
+            <div class="inner block bottom">
+                <h2>{{ content.feedback.mainTitle }}</h2>
+                <div class="sptr-small">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                    <p>{{ content.feedback.textFeedback }}</p>
+                <div class="btn-small">
+                    <a href="{{ path('feedback') }}">
+                        <span>{{ 'button.feedback'|trans }}</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div class="footer-holder">
+            {% include 'AppBundle:Common:footer.html.twig' %}
+        </div>
+    </main>
+{% endblock %}
+
+{% block footer %}{% endblock %}
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/app/js/about.bundle.min.js') }}"></script>
+{% endblock %}

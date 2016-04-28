@@ -1,0 +1,562 @@
+@import "reset.less";
+@import "settings.less";
+@import "icons.less";
+@import "animation.less";
+/*********************************/
+/* layout start                  */
+/*********************************/
+#page,
+#content{
+	width: 100%;
+	height: auto;
+	background: #f6f6f6;
+}
+#page{ position: relative; }
+.outer,
+.inner{
+	width: 100%;
+	height: auto;
+	overflow: hidden;
+}
+.inner{	max-width: 1200px; }
+/*********************************/
+/* layout end                    */
+/*********************************/
+
+/*********************************/
+/* header start                  */
+/*********************************/
+#header{
+    width: 100%;
+    min-width: 100%;
+    height: 60px;
+    background: transparent;
+    top: 0;
+	left: 0;
+    transition: all .5s ease 0s;
+    display: block;
+    .logo{ top: 10px; }
+    &.active{
+        background: @white;
+    }
+}
+/*********************************/
+/* header end                    */
+/*********************************/
+
+/*********************************/
+/* logo start                    */
+/*********************************/
+.logo{
+	width: 20px;
+	height: auto;
+	position: absolute;
+	left: 50%;
+	margin-left: -10px;
+	overflow: hidden;
+}
+/*********************************/
+/* logo end                      */
+/*********************************/
+
+/*********************************/
+/* menu start                    */
+/*********************************/
+#toggle-menu{
+    width: 60px;
+	height: 60px;
+    top: 0;
+	float: left;
+	position: absolute;
+    z-index: 20;
+	background: @gold;
+	border-radius: 0 0 5px 0;
+	cursor: pointer;
+    overflow: hidden;
+    & > .line{
+        display: block;
+    	width: 62.5%;
+    	height: 2px;
+    	background: @white;
+    	position: absolute;
+    	top: 0;
+    	left: 18.75%;
+    	opacity: 1;
+    	margin-top: -1px;
+    	transform: translateX(0) translateY(0) rotate(0deg) skew(-45deg);
+        &.top{ top: 35%; }
+        &.center{
+            top: 50%;
+        	transition: all .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        }
+        &.bottom{ top: 65%; }
+    }
+    &:hover > .line.top,
+    &.active > .line.top{
+        animation: lineTop .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 forwards;
+    }
+    &:hover > .line.center,
+    &.active > .line.center{
+        width: 32.5%;
+    	left: 33.5%;
+    	background: @black;
+        transition: all .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) .25s;
+    }
+    &:hover > .line.bottom,
+    &.active > .line.bottom{
+        animation:lineBottom .75s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s 1 forwards;
+    }
+}
+
+#menu-holder{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 15;
+	background: fade(@black, 95%);
+	opacity: 0;
+	transition: all .5s ease;
+	transform: translateX(-100%);
+	visibility: hidden;
+    .contact-holder{
+        display: block;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        bottom: 0;
+        a{
+            display: inline-block;
+            height: auto;
+            margin: 20px;
+            color: @white;
+            transition: all .5s ease 0s;
+            & > span.icon{
+                color: inherit;
+                margin-right: 10px;
+                &:before{ vertical-align: bottom; }
+            }
+            &:hover{ color: @gold; }
+        }
+    }
+    & > .menu{
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        text-align: center;
+        backface-visibility: hidden;
+        ul{
+            display: block;
+            width: 100%;
+            li{
+                text-align: center;
+            	margin: 40px 0 0;
+            	line-height: 50px;
+            	position: relative;
+                a{
+                    display: inline-block;
+                	font-size: 1.125em;
+                	text-transform: uppercase;
+                	color: @white;
+                	transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+                }
+                &:first-child{ margin-top: 0; }
+                &:before{
+                    display: inline-block;
+                	width: 2px;
+                	height: 40px;
+                	top: 50px;
+                	left: 50%;
+                	position: absolute;
+                	background: @white;
+                	content: "";
+                	overflow: hidden;
+                }
+                .active{ color: @gold; }
+                &:last-child:before{ display: none; }
+            }
+        }
+    }
+    & > .menu a:hover,
+    &.active .menu a{ color: #c9ae5d; }
+    &.opened{
+        opacity: 1;
+    	transform: translateX(0);
+    	visibility: visible;
+    }
+}
+/*********************************/
+/* menu end                      */
+/*********************************/
+
+/*********************************/
+/* buttons start                 */
+/*********************************/
+div[class^="btn"]{
+    width: 240px;
+    height: 60px;
+    overflow: hidden;
+    & > a,
+    & > span{
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        border: 1px solid @gold;
+        color: @gold;
+        font-size: 1.25em;
+        border-radius: 5px;
+        text-align: center;
+        box-sizing: border-box;
+        overflow: hidden;
+        span,
+        &:before,
+        &:after{
+            display: block;
+        	width: 100%;
+        	height: 100%;
+        	position: absolute;
+        	top: 0;
+        	left: 0;
+        	transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        span{
+            z-index: 5;
+            font-size: inherit;
+            color: inherit;
+        }
+        &:before,
+        &:after{
+            background: @gold;
+        	content: "";
+        	transform: skew(0deg);
+        	border-radius: 5px;
+        	opacity: 0;
+            backface-visibility: hidden;
+        	visibility: hidden;
+        }
+        &:after{ background: fade(@black, 50%); }
+        &:hover{
+            span,
+            &:after{ transition: all .5s cubic-bezier(0.25, 0.46, 0.45, 0.94) .25s; }
+            span{ color: @white; }
+            &:before,
+            &:after{
+                opacity: 1;
+            	visibility: visible;
+            }
+            &:before{ transform: skew(45deg); }
+            &:after{ transform: skew(-45deg); }
+        }
+    }
+}
+
+div.btn-large{
+    & > a{
+        span{ line-height: 55px; }
+    }
+}
+
+div.btn-small{
+    width: 180px;
+    height: 50px;
+    & > a,
+    & > span{
+        color: @black;
+        font-size: 1em;
+        span{ line-height: 45px; }
+    }
+}
+/*********************************/
+/* buttons end                   */
+/*********************************/
+
+/*********************************/
+/* icons holder start            */
+/*********************************/
+.icons-holder{
+    width: 100%;
+    overflow: hidden;
+    li{
+        display: block;
+    	width: 20%;
+    	min-height: 100px;
+    	position: relative;
+    	float: left;
+    	overflow: hidden;
+    	text-align: center;
+        & > .icon{
+            font-size: 2.5em;
+        }
+    }
+    .sptr-small{ margin: 20px auto; }
+}
+/*********************************/
+/* icons holder end              */
+/*********************************/
+
+/*********************************/
+/* scroll start                  */
+/*********************************/
+.scroll-down{
+    position: absolute;
+    width: 24px;
+    height: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+    border: 1px solid @white;
+    border-radius: 10px;
+    box-sizing: border-box;
+    content: "";
+    .scroll{
+        position: absolute;
+        width: 2px;
+        height: 10px;
+        left: 50%;
+        top: 5px;
+        transform: translateX(-50%);
+        background: @gold;
+        animation: bounce 1.75s infinite;
+    }
+}
+/*********************************/
+/* scroll end                    */
+/*********************************/
+
+/*********************************/
+/* arrow start                   */
+/*********************************/
+.arrow-left,
+.arrow-right{
+    width: 60px;
+	height: 40px;
+	position: absolute;
+	overflow: visible;
+    & > .left-part,
+    & > .right-part{
+        width: 30px;
+    	height: 1px;
+    	position: absolute;
+    	top: 50%;
+    	background: @white;
+    }
+    & > .left-part{
+        left: 0%;
+    	transform-origin: 100% 100%;
+        transform: rotate(45deg);
+    }
+    & > .right-part{
+        left: 100%;
+        margin-left: -30px;
+        transform-origin: 0% 0%;
+    	transform: rotate(-45deg);
+    }
+}
+/*********************************/
+/* arrow end                     */
+/*********************************/
+
+/*********************************/
+/* separators start              */
+/*********************************/
+*[class^="sptr"]{
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+    &:before{
+        display: block;
+    	position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	background: @gold;
+    	content: "";
+    	border-radius: 3px;
+    	transform: translateX(-50%) translateY(-50%) rotate(-45deg);
+    }
+    & > .line{
+        display: block;
+    	height: 1px;
+    	position: absolute;
+    	top: 50%;
+    	left: 0;
+    	background: @gold;
+        &:last-child{
+            left: auto;
+            right: 0;
+        }
+    }
+}
+
+.sptr-large{
+    width: 100%;
+	height: 26px;
+    &:before{
+        width: 18px;
+        height: 18px;
+    }
+    & > .line{
+        width: ~"calc(50% - 40px)";
+    }
+}
+
+.sptr-small{
+	width: 120px;
+	height: 20px;
+    &::before{
+        width: 12px;
+    	height: 12px;
+    }
+    & > .line{
+        width: 40px;
+    }
+}
+/*********************************/
+/* separators start              */
+/*********************************/
+
+/*********************************/
+/* footer start                  */
+/*********************************/
+#footer-holder{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+    .feedback{
+        width: 100%;
+        background: @gold;
+        overflow: hidden;
+        h2{
+            font-size: 2em;
+            margin-top: 40px;
+        }
+        p{
+            font-size: 1.125em;
+
+        }
+        .btn-small{
+            margin: 20px auto 40px;
+            & > a{
+                background: @white;
+                border: 2px solid @white;
+                span{
+                    color: @black;
+                }
+                &:hover{
+                    span{ color: @white; }
+                }
+            }
+        }
+    }
+}
+
+#footer{
+    width: 100%;
+	height: 100%;
+    background: @black;
+    overflow: hidden;
+    .logo-cheers{
+        width: 80px;
+        height: auto;
+        margin: 5px auto 0;
+        overflow: hidden;
+    }
+    small{
+        display: block;
+        font-size: .875em;
+        text-align: center;
+        color: @white;
+        margin-bottom: 10px;
+        overflow: hidden;
+        a{ color: inherit; }
+    }
+}
+/*********************************/
+/* footer end                    */
+/*********************************/
+
+/*********************************/
+/* media-queries start           */
+/*********************************/
+@media only screen and @netbook{
+
+    h1, h2, h3, h4, h5, h6{
+        font-size: 1.5em;
+    }
+}
+
+@media only screen and @smartphone600{
+
+    #menu-holder{
+        .contact-holder{
+            a{
+                margin: 10px 0 0 0;
+                &:first-child{ display: none; }
+                &:last-child{ margin-bottom: 20px; }
+            }
+        }
+    }
+
+}
+
+@media only screen and @smartphone440{
+
+    h1, h2, h3, h4, h5, h6{ padding: 0 20px; }
+
+    div[class^="btn"]{
+        width: 180px;
+        height: 50px;
+        & > a,
+        & > span{
+            font-size: 1.125em;
+            border-radius: 3px;
+            &:before,
+            &:after{
+                border-radius: 3px;
+            }
+        }
+    }
+
+    div.btn-large{
+        & > a,
+        & > span{
+            span{ line-height: 50px; }
+        }
+    }
+
+    div.btn-small{
+        width: 160px;
+        height: 40px;
+        & > a,
+        & > span{
+            font-size: .875em;
+            span{ line-height: 35px; }
+        }
+    }
+
+    #footer-holder{
+        .feedback{
+            h2{
+                font-size: 1.5em;
+            }
+            p{
+                font-size: 1em;
+                padding: 0 20px;
+            }
+        }
+    }
+
+    #footer{
+        small{
+            padding: 0 20px;
+        }
+    }
+
+}
+/*********************************/
+/* media-queries end             */
+/*********************************/

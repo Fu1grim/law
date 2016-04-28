@@ -1,0 +1,101 @@
+@import "components/common.less";
+@import "components/caseItem.less";
+
+
+/*********************************/
+/* cases start                   */
+/*********************************/
+
+.cases-info{
+	width: 100%;
+	height: auto;
+    margin: 0 auto;
+	padding: 80px 0 80px;
+	position: relative;
+    text-align: center;
+	overflow: hidden;
+    h1{
+        font-size: 1.5em;
+    	margin-bottom: 60px;
+    }
+    h2{ font-size: 2em; }
+    .cases{
+        width: 100%;
+        margin: 0 auto;
+        .case{
+            width: ~"calc(50% - 20px)";
+            padding-top: ~"calc(50% - 20px)";
+            margin-top: 40px;
+            float: left;
+            &:nth-child(odd){
+                margin-right: 40px;
+            }
+        }
+    }
+}
+
+/*********************************/
+/* cases end                     */
+/*********************************/
+
+/*********************************/
+/* adaptive start                */
+/*********************************/
+
+@media only screen and @netbook{
+
+    .cases-info{
+        .cases{
+            width: 100%;
+            max-width: 1200px;
+            padding: 0 40px;
+            margin: 0 auto;
+            box-sizing: border-box;
+        }
+    }
+
+}
+
+@media only screen and @tablet{
+
+    .cases-info{
+        h1{ font-size: 1em; }
+        h2{ font-size: 1.5em; }
+        .cases{
+            .case{
+                width: 100%;
+                padding-top: 100%;
+                float: left;
+                &:nth-child(odd){ margin-right: 0; }
+            }
+        }
+    }
+
+}
+
+@media only screen and @smartphone440{
+
+    .cases-info{
+        .cases{
+            padding: 0 20px;
+            .case{ margin-top: 20px; }
+        }
+    }
+
+}
+
+@media only screen and @smartphone360{
+
+    .cases-info{
+        .cases{
+            .case{
+                .btn-small{ margin-top: 20px; }
+            }
+        }
+    }
+
+}
+
+/*********************************/
+/* adaptive end                  */
+/*********************************/
