@@ -570,17 +570,30 @@ div.btn-small{
     }
 }
 
+
 @media only screen and @smartphone600{
 
-    #menu-holder{
-        .contact-holder{
-            a{
-                margin: 10px 0 0 0;
-                &:first-child{ display: none; }
-                &:last-child{ margin-bottom: 20px; }
-            }
-        }
-    }
+	#menu-holder{
+	    .contact-holder{
+			bottom: 0;
+			a{
+				margin: 10px 0 0 0;
+				&:first-child{ display: none; }
+				&:last-child{ margin-bottom: 20px; }
+			}
+		}
+	    & > .menu{
+	        top: 20%;
+	        transform: translateY(-20%);
+	        ul{
+	            li{
+	            	line-height: 40px;
+	                a{ font-size: 1em; }
+	                &:before{ top: 40px; }
+	            }
+	        }
+	    }
+	}
 
 }
 
