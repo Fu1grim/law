@@ -36,8 +36,9 @@ class ContentMainAdmin extends Admin
             ->add('subTitle', 'text', [
                 'label' => "Підзаголовок"
             ])
-            ->add('textMain', 'text', [
-                'label' => "Текст"
+            ->add('textMain', 'textarea', [
+                'label' => "Текст",
+                'attr' => ['rows' => '5'],
             ])
         ;
     }

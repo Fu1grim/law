@@ -15,6 +15,8 @@ class LoadContentAboutData extends AbstractFixture
             ->setMainTitle("ПРО МЕНЕ")
             ->setSubTitleAbout("ГНАТЕНКO ОЛЕКСІЙ АНАТОЛІЙОВИЧ")
             ->setTextAbout("Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
+            ->setTextSubAbout("Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
+            ->setTextAboutFeedback("Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
         ;
 
         $manager->persist($contentAbout);

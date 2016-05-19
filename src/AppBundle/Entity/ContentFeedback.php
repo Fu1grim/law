@@ -13,18 +13,21 @@ use AppBundle\Entity\Utility\Traits\IdMapper;
 class ContentFeedback
 {
     use IdMapper;
+
     /**
     * @ORM\Column(type="string", length=200)
     */
     protected $mainTitle;
+
     /**
     * @ORM\Column(type="string", length=200)
     */
     protected $subTitleFeedback;
-    /**
-    * @ORM\Column(type="string", length=1000)
-    */
-    protected $textFeedback;
+
+    // /**
+    // * @ORM\Column(type="string", length=1000)
+    // */
+    // protected $textFeedback;
 
     public function __toString()
     {
@@ -79,27 +82,27 @@ class ContentFeedback
         return $this->subTitleFeedback;
     }
 
-    /**
-     * Set textFeedback
-     *
-     * @param string $textFeedback
-     *
-     * @return ContentFeedback
-     */
-    public function setTextFeedback($textFeedback)
-    {
-        $this->textFeedback = $textFeedback;
-
-        return $this;
-    }
-
-    /**
-     * Get textFeedback
-     *
-     * @return string
-     */
-    public function getTextFeedback()
-    {
-        return $this->textFeedback;
-    }
+    // /**
+    //  * Set textFeedback
+    //  *
+    //  * @param string $textFeedback
+    //  *
+    //  * @return ContentFeedback
+    //  */
+    // public function setTextFeedback($textFeedback)
+    // {
+    //     $this->textFeedback = $textFeedback;
+    //
+    //     return $this;
+    // }
+    //
+    // /**
+    //  * Get textFeedback
+    //  *
+    //  * @return string
+    //  */
+    // public function getTextFeedback()
+    // {
+    //     return $this->textFeedback;
+    // }
 }

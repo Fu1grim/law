@@ -21,6 +21,9 @@
 
             {% set active = ( current_path == 'about' ) ? 'class="active"' : null %}
             <li><a href="{{ path('about') }}" {{ active|raw }}>{{ 'common.menu.about'|trans }}</a></li>
+
+            {% set active = ( current_path == 'feedback' ) ? 'class="active"' : null %}
+            <li><a href="{{ path('feedback') }}" {{ active|raw }}>{{ 'common.menu.feedback'|trans }}</a></li>
         </ul>
     </nav>
 

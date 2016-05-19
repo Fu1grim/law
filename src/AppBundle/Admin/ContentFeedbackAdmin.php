@@ -36,9 +36,10 @@ class ContentFeedbackAdmin extends Admin
             ->add('subTitleFeedback', 'text', [
                 'label' => "Підзаголовок"
             ])
-            ->add('textFeedback', 'text', [
-                'label' => "Текст"
-            ])
+            // ->add('textFeedback', 'textarea', [
+            //     'label' => "Текст",
+            //     'attr' => ['rows' => '5'],
+            // ])
         ;
     }
 }

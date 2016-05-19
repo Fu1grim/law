@@ -39,8 +39,9 @@ class ContentServiceAdmin extends Admin
             ->add('subTitleService', 'text', [
                 'label' => "Підзаголовок \"Сервіси\""
             ])
-            ->add('textService', 'text', [
-                'label' => "Текст"
+            ->add('textService', 'textarea', [
+                'label' => "Текст",
+                'attr' => ['rows' => '5'],
             ])
         ;
     }

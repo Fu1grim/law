@@ -13,6 +13,10 @@ sonata_admin:
         user_block: AppBundle:Admin:user_block.html.twig
         layout:     AppBundle:Admin:standard_layout.html.twig
 
+twig:
+    form_themes:
+        - 'SonataCoreBundle:Form:datepicker.html.twig'
+
 services:
 
     # Work

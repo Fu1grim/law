@@ -45,28 +45,28 @@
             <div class="services">
 
                 {% for service in services %}
-                    <div class="block-holder">
-                        <div class="skew">
-                            <figure>
-                                <img src="{{ asset('bundles/app/images/' ~ service.image) }}" alt="{{ service.title }}">
-                            </figure>
+
+                    <article class="block-holder {% if loop.index is even %}reverse{% endif %}">
+                        <div class="bg-photo">
+                            <div class="entitled-holder">
+                                <span class="icon {{ service.icon }}"></span>
+                                <div class="sptr-small">
+                                    <span class="line"></span>
+                                    <span class="line"></span>
+                                </div>
+                                <h2>{{ service.title }}</h2>
+                            </div>
                         </div>
                         <div class="inner">
-                            <span class="icon {{ service.icon }}"></span>
-                            <div class="sptr-small">
-                                <span class="line"></span>
-                                <span class="line"></span>
-                            </div>
-                            <span>{{ service.title }}</span>
                             <ul class="list">
-
                                 {% for serviceItem in service.serviceItems %}
-                                    <li>{{ serviceItem.title }}</li>
+                                    <li>
+                                        <p>{{ serviceItem.title }}</p>
+                                    </li>
                                 {% endfor %}
-
                             </ul>
                         </div>
-                    </div>
+                    </article>
                 {% endfor %}
 
             </div>

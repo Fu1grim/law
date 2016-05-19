@@ -18,18 +18,22 @@ class Specialization
      * @ORM\Column(type="string", length=100)
      */
     protected $title;
+
     /**
      * @ORM\Column(type="string", length=100)
      */
     protected $icon;
+
     /**
      * @ORM\OneToMany(targetEntity="Work", mappedBy="specialization")
      */
     protected $works;
+
     /**
      * @ORM\Column(type="boolean")
      */
     protected $isMajor;
+
     /**
      * Constructor
      */

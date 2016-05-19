@@ -27,7 +27,11 @@
                     <span class="line"></span>
                     <span class="line"></span>
                 </div>
-                <p>{{ content.about.textAbout }}</p>
+
+                {% for paragraph in content.about.textAboutByNewline %}
+                    <p>{{ paragraph }}</p>
+                {% endfor %}
+
             </div>
         </section>
         <section class="inner middle-holder">
@@ -35,7 +39,11 @@
                <img src="{{ asset('bundles/app/images/logo-white.png') }}">
            </div>
            <div class="middle-info">
-               <p>{{ content.service.textService }}</p>
+
+               {% for paragraph in content.about.textSubAboutByNewline %}
+                   <p>{{ paragraph }}</p>
+               {% endfor %}
+
            </div>
         </section>
         <section class="outer block-holder bottom">
@@ -45,7 +53,11 @@
                     <span class="line"></span>
                     <span class="line"></span>
                 </div>
-                    <p>{{ content.feedback.textFeedback }}</p>
+
+                    {% for paragraph in content.about.textAboutFeedbackByNewline %}
+                        <p>{{ paragraph }}</p>
+                    {% endfor %}
+
                 <div class="btn-small">
                     <a href="{{ path('feedback') }}">
                         <span>{{ 'button.feedback'|trans }}</span>

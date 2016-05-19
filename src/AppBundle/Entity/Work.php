@@ -11,7 +11,8 @@ use Doctrine\ORM\Mapping as ORM;
 
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
-use AppBundle\Entity\Utility\Traits\IdMapper;
+use AppBundle\Entity\Utility\Traits\IdMapper,
+    AppBundle\Entity\Utility\Traits\TextFormatter;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Entity\Repository\WorkRepository")
@@ -21,45 +22,53 @@ use AppBundle\Entity\Utility\Traits\IdMapper;
  */
 class Work
 {
-    use IdMapper;
+    use IdMapper, TextFormatter;
 
     const WEB_PATH        = "/uploads/work/images/";
     const WEB_PATH_THUMBS = "/uploads/work/images/thumbs/";
 
     /**
     * @ORM\ManyToOne(targetEntity="Specialization", inversedBy="works")
-    * @ORM\JoinColumn(name="spec_id", referencedColumnName="id")
+    * @ORM\JoinColumn(name="specialization_id", referencedColumnName="id")
     */
     protected $specialization;
+
     /**
     * @ORM\ManyToOne(targetEntity="Service", inversedBy="works")
-    * @ORM\JoinColumn(name="spec_id", referencedColumnName="id")
+    * @ORM\JoinColumn(name="service_id", referencedColumnName="id")
     */
     protected $service;
+
     /**
     * @ORM\Column(type="string", length=100)
     */
     protected $code;
+
     /**
     * @ORM\Column(type="string", length=100)
     */
     protected $title;
+
     /**
     * @ORM\Column(type="text")
     */
     protected $description;
+
     /**
     * @ORM\Column(type="text", name="point_text")
     */
     protected $pointText;
+
     /**
     * @ORM\Column(type="text", name="resolve_text")
     */
     protected $resolveText;
+
     /**
     * @ORM\Column(type="text", name="result_text")
     */
     protected $resultText;
+
     /**
     * @ORM\Column(type="datetime")
     */
@@ -244,6 +253,11 @@ class Work
         return $this->pointText;
     }
 
+    public function getPointTextByNewline()
+    {
+        return $this->explodeByNewline($this->pointText);
+    }
+
     /**
      * Set resolveText
      *
@@ -268,6 +282,11 @@ class Work
         return $this->resolveText;
     }
 
+    public function getResolveTextByNewline()
+    {
+        return $this->explodeByNewline($this->resolveText);
+    }
+
     /**
      * Set resultText
      *
@@ -290,6 +309,11 @@ class Work
     public function getResultText()
     {
         return $this->resultText;
+    }
+
+    public function getResultTextByNewline()
+    {
+        return $this->explodeByNewline($this->resultText);
     }
 
     /**

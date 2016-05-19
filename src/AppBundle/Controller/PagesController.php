@@ -146,11 +146,11 @@ class PagesController extends Controller
 
         $content = [
             'about' => $_manager->getRepository('AppBundle:ContentAbout')->findOneBy([], [], 1),
-            'service' => $_manager->getRepository('AppBundle:ContentService')->findOneBy([], [], 1),
             'feedback' => $_manager->getRepository('AppBundle:ContentFeedback')->findOneBy([], [], 1)
         ];
 
-        if( !$content['about'] || !$content['service'] || !$content['feedback'] )
+
+        if( !$content['about'] || !$content['feedback'] )
             throw $this->createNotFoundException();
 
         return $this->render('AppBundle:Pages:about.html.twig', [

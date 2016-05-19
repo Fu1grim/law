@@ -46,11 +46,26 @@ class WorkAdmin extends Admin
             ->add('title', 'text', [
                 'label' => "Назва"
             ])
+            ->add('code', 'text', [
+                'label' => "Номер Справи"
+            ])
             ->add("specialization", NULL, [
-                "label" => "Категорія",
+                "label" => "Спеціалізація",
                 "required" => TRUE,
-                "placeholder" => "Spec!",
+                "placeholder" => "Оберіть спеціалізацію",
                 "class" => 'AppBundle\Entity\Specialization',
+                "query_builder" => function($er) {
+                    $qb = $er->createQueryBuilder('p');
+                    return $qb;
+                 }
+            ], [
+                'edit' => 'standard'
+            ])
+            ->add("service", NULL, [
+                "label" => "Послуги",
+                "required" => TRUE,
+                "placeholder" => "Оберіть послугу",
+                "class" => 'AppBundle\Entity\Service',
                 "query_builder" => function($er) {
                     $qb = $er->createQueryBuilder('p');
                     return $qb;
@@ -66,20 +81,23 @@ class WorkAdmin extends Admin
                 'help'          => $imageHelpOption
             ])
             ->add('description', 'textarea', [
-                'label' => "Опис"
+                'label' => "Опис",
+                'attr' => ['rows' => '5'],
             ])
-            ->add('pointText', 'text', [
-                'label' => "Суть"
+            ->add('pointText', 'textarea', [
+                'label' => "Суть",
+                'attr' => ['rows' => '10'],
             ])
-            ->add('resolveText', 'text', [
-                'label' => "Розв’язання"
+            ->add('resolveText', 'textarea', [
+                'label' => "Розв’язання",
+                'attr' => ['rows' => '10'],
             ])
-            ->add('resultText', 'text', [
-                'label' => "Висновок"
+            ->add('resultText', 'textarea', [
+                'label' => "Висновок",
+                'attr' => ['rows' => '10'],
             ])
-            ->add('created', 'date', [
-                'label'  => "Створено",
-                'format' => 'yMd'
+            ->add('created', 'sonata_type_date_picker', [
+                'label'  => "Створено"
             ])
         ;
     }

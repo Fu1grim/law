@@ -36,8 +36,17 @@ class ContentAboutAdmin extends Admin
             ->add('subTitleAbout', 'text', [
                 'label' => "Підзаголовок"
             ])
-            ->add('textAbout', 'text', [
-                'label' => "Текст"
+            ->add('textAbout', 'textarea', [
+                'label' => "Текст",
+                'attr' => ['rows' => '10'],
+            ])
+            ->add('textSubAbout', 'textarea', [
+                'label' => "Текст",
+                'attr' => ['rows' => '10'],
+            ])
+            ->add('textAboutFeedback', 'textarea', [
+                'label' => "Текст",
+                'attr' => ['rows' => '10'],
             ])
         ;
     }

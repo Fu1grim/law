@@ -14,7 +14,7 @@ class LoadContentFeedbackData extends AbstractFixture
         $contentFeedback = (new ContentFeedback())
             ->setMainTitle("ДАВАЙТЕ СПІВПРАЦЮВАТИ")
             ->setSubTitleFeedback("МОЯ КОНТАКТНА ІНФОРМАЦІЯ")
-            ->setTextFeedback("Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
+            //->setTextFeedback("Lorem ipsum dolor sit amet, consectetur adipisicing elit.")
         ;
 
         $manager->persist($contentFeedback);

@@ -7,13 +7,14 @@ common:
         services: послуги
         cases:    кейси
         about:    про мене
+        feedback: контакти
     prefooter:
         title: бажаєте співпрацювати?
         text:  буду радий знайти нових партнерів та розглянути цікаві справи
     footer:
-        footerTextStart: © Гнатенко Олексій, 2016. Створено в
+        footerTextStart: © Індивідуальна адвокатська практика Гнатенка Олексія, 2016. Web production by
         footerTextEnd:   Використання матеріалів сайту без згоди його авторів заборонено.
-        cheers:          CHEERS! Unlimited.
+        cheers:          CHEERS
 
 
 button:
