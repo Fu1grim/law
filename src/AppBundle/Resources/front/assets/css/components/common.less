@@ -497,7 +497,7 @@ div.btn-small{
     background: @white;
     opacity: 1;
     visibility: visible;
-    transition: all .25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 2s;
+    transition: all .25s cubic-bezier(0.25, 0.46, 0.45, 0.94) 1s;
     overflow: hidden;
     .logo{
         background: @white;
@@ -537,7 +537,7 @@ div.btn-small{
         left: 0;
         transform: translateX(-100%);
         background: @gold;
-        transition: all 2s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+        transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
         overflow: hidden;
     }
 }
@@ -588,8 +588,12 @@ div.btn-small{
 	        ul{
 	            li{
 	            	line-height: 40px;
+					margin: 20px 0 0;
 	                a{ font-size: 1em; }
-	                &:before{ top: 40px; }
+	                &:before{
+						height: 20px;
+						top: 40px;
+					}
 	            }
 	        }
 	    }
@@ -600,6 +604,8 @@ div.btn-small{
 @media only screen and @smartphone440{
 
     h1, h2, h3, h4, h5, h6{ padding: 0 20px; }
+
+
 
     div[class^="btn"]{
         width: 180px;

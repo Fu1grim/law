@@ -17,9 +17,9 @@ liip_imagine:
         case_thumb:
             quality: 100
             filters:
-                thumbnail: { size: [1000, 1000], mode: outbound }
+                thumbnail: { size: [600, 600], mode: outbound }
 
         case_landscape:
             quality: 100
             filters:
-                thumbnail: { size: [1920, 600], mode: outbound }
+                thumbnail: { size: [1200, 600], mode: outbound }

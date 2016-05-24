@@ -16,11 +16,7 @@
 {% endblock %}
 
 {% block content %}
-
-
     <main id="content">
-
-
         <article class="case-holder">
 
             <div class="photo-holder">
@@ -28,7 +24,7 @@
                     {% set originalImage = vich_uploader_asset(work, 'imageFile') %}
                     {% set landscapeImage = ( originalImage ) ? originalImage|imagine_filter('case_landscape') : null  %}
 
-                    <div class="background" style="background: url('{{ landscapeImage }}') no-repeat 50% 0;"></div>
+                    <div class="background" style="background: url('{{ landscapeImage }}') no-repeat 50% 0; background-size: cover;"></div>
                 </figure>
             </div>
             <div class="title-holder">

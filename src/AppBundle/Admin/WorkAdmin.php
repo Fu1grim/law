@@ -74,7 +74,7 @@ class WorkAdmin extends Admin
                 'edit' => 'standard'
             ])
             ->add('imageFile', VichFileType::class, [
-                'label'         => "Зображення",
+                'label'         => "Зображення (1920х1080)",
                 'required'      => $imageRequired,
                 'allow_delete'  => FALSE,
                 'download_link' => FALSE,

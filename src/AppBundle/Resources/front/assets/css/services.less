@@ -55,20 +55,29 @@
 /*********************************/
 
 .services-holder{
-    margin: 80px auto 0;
+    margin: 80px auto 80px;
     h2{
         font-size: 2em;
         margin-bottom: 40px;
     }
     .block-holder{
-    	width: 100%;
+        display: inline-block;
+    	width: 29.16666666666667%;
     	height: auto;
+    	float: none;
+    	margin: 2.083333333333333%;
+    	padding-top: 50%;
     	position: relative;
+        &:first-child{ margin-right: 0; }
+        &:last-child{ margin-left: 0; }
         .inner{
-        	width: 50%;
-            max-width: 100%;
+        	width: 100%;
+        	min-width: 100%;
         	height: auto;
-            margin-left: 50%;
+        	position: absolute;
+        	left: 0;
+        	top: 40px;
+        	z-index: 5;
         	overflow: hidden;
             .sptr-small{ margin: 10px auto 0; }
             .icon{ font-size: 2.5em; }
@@ -81,43 +90,44 @@
             	width: 100%;
             	height: auto;
             	display: block;
-            	margin: 80px 0;
+            	margin-top: 40px;
                 li{
-                    display: block;
                 	width: 100%;
                 	height: auto;
+                	display: inline-block;
                 	position: relative;
-                	padding: 0 80px;
-                    margin-bottom: 20px;
+                	color: @white;
+                	text-align: left;
+                	margin: 20px;
+                	left: 50%;
+                	padding: 0 40px 0 20px;
+                	font-size: 0.875em;
+                	transform: translateX(-50%);
                     box-sizing: border-box;
-                    &:last-child{ margin-bottom: 0; }
-                    p{
-                        font-size: 1em;
-                        text-align: left;
-                        color: @black;
-                    }
                     &:before{
                     	width: 10px;
                     	height: 10px;
                     	display: block;
                     	position: absolute;
                     	top: 50%;
-                    	left: 60px;
+                    	left: 0;
                     	content: attr(data-number);
-                    	background: @black;
+                    	background: @white;
                     	border-radius: 3px;
                     	transform: translateY(-50%) rotate(-45deg);
                     }
                 }
             }
         }
-        .bg-photo{
-        	width: 50%;
+        .skew{
+        	width: 100%;
         	height: 100%;
         	position: absolute;
         	top: 0;
         	left: 0;
         	z-index: 2;
+        	border-radius: 5px;
+        	transform: rotate(-10deg) skew(-10deg);
         	overflow: hidden;
             &:before{
                 display: block;
@@ -127,61 +137,20 @@
             	position: absolute;
             	top: 0;
             	left: 0;
+            	z-index: 3;
             	content: "";
             	border-radius: 5px;
             	overflow: hidden;
             }
-            .entitled-holder{
-                width: 100%;
-                height: auto;
-                position: absolute;
-                top: 50%;
-                left: 0;
-                z-index: 10;
-                transform: translateY(-50%);
+            figure{
+                width: 102%;
+            	height: 120%;
+            	position: absolute;
+            	top: -5%;
+            	left: -1%;
+            	border-radius: 5px;
+            	transform: rotate(10deg) skew(10deg);
                 overflow: hidden;
-                .icon{
-                    display: block;
-                    width: 60px;
-                    height: 60px;
-                    margin: 0 auto;
-                    color: @white;
-                    font-size: 2.5em;
-                    line-height: 60px;
-                    text-align: center;
-                }
-                h2{
-                    margin-top: 20px;
-                    text-align: center;
-                    font-size: 1.25em;
-                    color: @white;
-                }
-            }
-        }
-        &.reverse{
-            .inner{
-                margin-left: 0;
-            }
-            .bg-photo{
-                left: 50%;
-            }
-        }
-        &:nth-child(1){
-            .bg-photo{
-                background: transparent url("@{image}court.jpg") no-repeat 50% 50%;
-                background-size: cover;
-            }
-        }
-        &:nth-child(2){
-            .bg-photo{
-                background: transparent url("@{image}building.jpg") no-repeat 50% 50%;
-                background-size: cover;
-            }
-        }
-        &:nth-child(3){
-            .bg-photo{
-                background: transparent url("@{image}book.jpg") no-repeat 50% 50%;
-                background-size: cover;
             }
         }
     }
@@ -194,6 +163,33 @@
 /*********************************/
 /* media-queries start           */
 /*********************************/
+
+@media only screen and @notebook{
+
+    .spec-holder{
+        .spec{
+            margin: 20px auto 80px;
+        }
+    }
+
+}
+
+@media only screen and @netbook{
+    .services{
+        .block-holder{
+		width: 46%;
+		margin: 2%;
+        &:first-child{ margin-right: 0; }
+        &:last-child{ margin-top: 5%; }
+        .inner{
+            .list{
+                li{ margin: 0 40px 20px; }
+                }
+            }
+        }
+    }
+}
+
 @media only screen and @tablet{
     .spec-holder{
         .spec{
@@ -207,86 +203,48 @@
         }
     }
     .services-holder{
-        .block-holder{
-            .inner{
-                .list{
-                    li{
-                    	padding: 0 40px;
-                        &:before{ left: 20px; }
-                    }
-                }
-            }
+        margin: 80px auto 80px;
+        h2{
+            font-size: 1.5em;
         }
     }
 
+    .services{
+        .block-holder{
+            display: block;
+            width: 90%;
+            position: relative;
+            margin: 20px auto;
+            padding: 40px 0 80px;
+            box-sizing: border-box;
+            &:first-child,
+            &:last-child{
+                margin: 20px auto;
+            }
+            .skew{
+                transform: skewY(-10deg);
+                figure{
+                    width: 100%;
+                    height: 150%;
+                    position: absolute;
+                    top: -80px;
+                    left: 0;
+                    transform: skewY(10deg);
+                }
+            }
+            .inner{
+                position: relative;
+            }
+        }
+    }
 }
 
 @media only screen and @smartphone600{
-
     .services-holder{
-        margin: 80px auto 0;
-        padding: 0 20px;
-        box-sizing: border-box;
-        h2{
-            font-size: 2em;
-            margin-bottom: 40px;
-        }
-        .block-holder{
-        	width: 100%;
-        	height: auto;
-        	position: relative;
-            margin-bottom: 40px;
-            .inner{
-            	width: 100%;
-                max-width: 100%;
-            	height: auto;
-                margin-left: 0%;
-                position: relative;
-                padding: 160px 0 80px;
-                z-index: 10;
-            	overflow: hidden;
-                .list{
-                	margin: 20px 0 0 0;
-                    li{
-                    	padding: 0 40px;
-                        p{
-                            font-size: .875em;
-                            color: @white;
-                        }
-                        &:before{
-                        	left: 20px;
-                            background: @white;
-                        }
-                    }
-                }
-            }
-            .bg-photo{
-                width: 100%;
-            	z-index: 0;
-                .entitled-holder{
-                    margin-top: 40px;
-                    position: relative;
-                    top: 0;
-                    z-index: 10;
-                    transform: translateY(0%);
-                    .icon{
-                        width: 40px;
-                        height: 40px;
-                        font-size: 2em;
-                        line-height: 40px;
-                    }
-                    h2{
-                        font-size: 1.125em;
-                    }
-                }
-            }
-            &.reverse{
-                .inner{ margin-left: 0%; }
-                .bg-photo{ left: 0%; }
+        .services{
+                .block-holder{ padding-top: 90%; }
             }
         }
-    }
-
 }
 
 @media only screen and @smartphone440{
@@ -295,6 +253,41 @@
         .spec-icons{
             .icons-holder{
                 li{ width: 50%; }
+            }
+        }
+    }
+    .services-holder{
+        .services{
+            .block-holder{
+                padding-top: 140%;
+                .inner{
+                    .list{
+                        li{
+                            padding: 0 25px 0 20px;
+                            margin-left: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+}
+
+@media only screen and @smartphone360{
+
+    .services-holder{
+        .services{
+            .block-holder{
+                padding-top: 180%;
+                .inner{
+                    .list{
+                        li{
+                            padding: 0 30px 0 20px;
+                        }
+                    }
+                }
             }
         }
     }
