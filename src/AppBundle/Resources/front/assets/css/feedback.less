@@ -4,6 +4,11 @@
 /*********************************/
 /* layout start                  */
 /*********************************/
+#header{
+    position: absolute;
+    .logo{ z-index: 1; }
+}
+
 #page,
 #content{
 	width: 100%;
@@ -14,18 +19,13 @@
 	height: 100%;
 	background: url("../images/feedback.jpg") no-repeat 50% 0 fixed;
 	background-size: cover;
-    & > .logo{
-        position: static;
-        top: 0;
-        left: 0;
-        margin: 0 auto;
-        padding: 80px 0 0;
-    }
 }
 .outer{
     width: 100%;
     max-width: 1200px;
-    margin: 80px auto;
+    padding-top: 140px;
+    margin: 0 auto;
+    margin-bottom: 80px;
     position: relative;
 	&:last-child{
 		margin-bottom: 0;
@@ -42,48 +42,11 @@
 /* layout end                    */
 /*********************************/
 
-/*********************************/
-/* arrow-holder start            */
-/*********************************/
-.arrow-holder{
-    width: 100%;
-    padding-top: 40px;
-    overflow: hidden;
-    & > a{
-        display: inline-block;
-        vertical-align: top;
-        background: @black;
-        color: @white;
-        line-height: 40px;
-        padding: 0 20px;
-        transition: all .5s ease;
-        span{
-            display: inline-block;
-            line-height: 40px;
-            color: inherit;
-            font-size: inherit;
-            &:before{
-                line-height: 40px;
-                display: block;
-            }
-        }
-        &.left{
-            float: left;
-            border-radius: 0 3px 3px 0;
-            span{ padding-right: 10px; }
-        }
-        &:hover{ color: @gold; }
-    }
-}
-/*********************************/
-/* arrow-holder end              */
-/*********************************/
 
 /*********************************/
 /* contacts start                */
 /*********************************/
 .contacts{
-    margin-top: 40px;
     .contact-icons{
         display: block;
         width: 100%;
@@ -119,6 +82,7 @@
 /* feedback start                */
 /*********************************/
 .feedback{
+    padding-top: 0;
     & > p{
         max-width: 68%;
         margin: 0 auto;
@@ -142,6 +106,13 @@
 /*********************************/
 /* adaptive start                */
 /*********************************/
+@media only screen and @notebook{
+
+    .outer{ padding-top: 80px; }
+    .feedback{ padding-top: 0; }
+
+}
+
 @media only screen and @tablet{
 
     .feedback{
@@ -168,7 +139,7 @@
 @media only screen and @smartphone440{
 
     .contacts{
-        margin-top: 40px;
+        margin-bottom: 40px;
         .contact-icons{
             display: block;
             width: 100%;

@@ -11,6 +11,7 @@
 /src/AppBundle/Resources/front/node_modules/*
 /src/AppBundle/Resources/front/jspm_packages/*
 /src/AppBundle/Resources/public/*
+/npm-debug.log
 
 /vendor/
 

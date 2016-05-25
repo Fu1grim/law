@@ -561,6 +561,25 @@ div.btn-small{
     h1, h2, h3, h4, h5, h6{
         font-size: 1.5em;
     }
+    #toggle-menu{
+        &:hover > .line.top,
+        &.active > .line.top{
+            animation: none;
+            pointer-events: none;
+        }
+        &:hover > .line.center,
+        &.active > .line.center{
+            animation: none;
+            width: 39px;
+        	left: 10px;
+        	background: @white;
+        }
+        &:hover > .line.bottom,
+        &.active > .line.bottom{
+            animation: none;
+            pointer-events: none;
+        }
+    }
     #menu-holder{
         width: 100%;
         & > .menu{
@@ -568,6 +587,7 @@ div.btn-small{
             transform: translateY(-30%);
         }
     }
+
 }
 
 

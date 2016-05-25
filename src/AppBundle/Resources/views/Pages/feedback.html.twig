@@ -15,18 +15,8 @@
     <link rel="stylesheet" href="{{ asset('bundles/app/css/feedback.bundle.min.css') }}">
 {% endblock %}
 
-{% block header %}{% endblock %}
-
-{% block menu %}{% endblock %}
-
 {% block content %}
     <main id="content">
-        <div class="arrow-holder">
-            <a href="{{ path('home') }}" class="left"><span class="icon-arrow-right"></span>{{ 'button.main'|trans }}</a>
-        </div>
-        <div class="logo">
-            <img src="{{ asset('bundles/app/images/logo.png') }}">
-        </div>
         <section class="outer contacts">
             <h2>{{ contentFeedback.subTitleFeedback }}</h2>
             <div class="sptr-small">
@@ -58,6 +48,9 @@
             {% include 'AppBundle:Forms:feedback.html.twig' with {'feedbackView': feedbackView} only %}
 
         </section>
+        <div class="footer-holder">
+            {% include 'AppBundle:Common:footer.html.twig' %}
+        </div>
     </main>
 {% endblock %}
 
