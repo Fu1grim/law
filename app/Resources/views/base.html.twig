@@ -4,13 +4,20 @@
         <title>
             {% block title %}{% endblock %}
         </title>
+
         {% block meta %}
             <meta charset="UTF-8">
         {% endblock %}
+
         {% block favicon %}
             <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('bundles/app/images/favicons/favicon-32x32.png') }}">
         {% endblock %}
+
         {% block stylesheets %}{% endblock %}
+
+        {% block google_analytics %}{% endblock %}
+
+        {% block yandex_metrika %}{% endblock %}
     </head>
     <body>
         {% block body %}{% endblock %}
