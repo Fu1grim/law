@@ -11,6 +11,14 @@
     <meta name="robots" content="{{ metadata.robots }}">
 {% endblock %}
 
+{% block openGraph %}
+    <meta property="og:url" content="{{ url('services') }}">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{ 'common.site_title'|trans }} | {{ metadata.title }}">
+    <meta property="og:description" content="{{ metadata.description }}">
+    <meta property="og:image" content="{{ absolute_url(asset('bundles/app/images/back_1.jpg')) }}">
+{% endblock %}
+
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/app/css/services.bundle.min.css') }}">
 {% endblock %}
